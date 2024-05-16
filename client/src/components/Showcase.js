@@ -57,47 +57,47 @@ const recommendations = [
 
 function Showcase() {
     const [selectedRec, setSelectedRec] = useState(null);
-
+  
     const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 3000,
     };
-
+  
     const handleItemClick = (rec) => {
-        setSelectedRec(rec);
+      setSelectedRec(rec);
     };
-
+  
     const closeModal = () => {
-        setSelectedRec(null);
+      setSelectedRec(null);
     };
-
+  
     return (
-        <div className="showcase-container mx-auto max-w-4xl my-8">
-            <Slider {...settings}>
-                {recommendations.map((rec, index) => (
-                    <div key={index} className="p-4">
-                        <div 
-                            className="bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer"
-                            onClick={() => handleItemClick(rec)}
-                        >
-                            <img className="w-full h-64 object-cover object-center" src={rec.imageUrl} alt={rec.title} />
-                            <div className="p-4">
-                                <h2 className="text-gray-900 font-bold text-2xl">{`Recommended AI ${rec.category} of the Week: ${rec.title}`}</h2>
-                                <p className="mt-2 text-gray-600">{rec.description}</p>
-                                <a href={rec.url} className="text-blue-500 hover:underline mt-2 block">{rec.url}</a>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </Slider>
-            <Modal show={!!selectedRec} onClose={closeModal} content={selectedRec || {}} />
-        </div>
+      <div className="showcase-container mx-auto max-w-4xl my-8 px-4">
+        <Slider {...settings}>
+          {recommendations.map((rec, index) => (
+            <div key={index} className="p-4">
+              <div 
+                className="bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer"
+                onClick={() => handleItemClick(rec)}
+              >
+                <img className="w-full h-64 object-cover object-center" src={rec.imageUrl} alt={rec.title} />
+                <div className="p-4">
+                  <h2 className="text-gray-900 font-bold text-2xl">{`Recommended AI ${rec.category} of the Week: ${rec.title}`}</h2>
+                  <p className="mt-2 text-gray-600">{rec.description}</p>
+                  <a href={rec.url} className="text-blue-500 hover:underline mt-2 block">{rec.url}</a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Slider>
+        <Modal show={!!selectedRec} onClose={closeModal} content={selectedRec || {}} />
+      </div>
     );
-}
-
-export default Showcase;
+  }
+  
+  export default Showcase;
