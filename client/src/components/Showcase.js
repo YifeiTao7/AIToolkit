@@ -77,19 +77,19 @@ function Showcase() {
     };
   
     return (
-      <div className="showcase-container mx-auto max-w-4xl my-8 px-4">
+      <div className="showcase-container mx-auto max-w-4xl my-8 px-4 sm:max-w-2xl md:max-w-3xl lg:max-w-4xl">
         <Slider {...settings}>
           {recommendations.map((rec, index) => (
-            <div key={index} className="p-4">
+            <div key={index} className="p-2 sm:p-4">
               <div 
                 className="bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer"
                 onClick={() => handleItemClick(rec)}
               >
-                <img className="w-full h-64 object-cover object-center" src={rec.imageUrl} alt={rec.title} />
+                <img className="w-full h-40 sm:h-64 object-cover object-center" src={rec.imageUrl} alt={rec.title} />
                 <div className="p-4">
-                  <h2 className="text-gray-900 font-bold text-2xl">{`Recommended AI ${rec.category} of the Week: ${rec.title}`}</h2>
-                  <p className="mt-2 text-gray-600">{rec.description}</p>
-                  <a href={rec.url} className="text-blue-500 hover:underline mt-2 block">{rec.url}</a>
+                  <h2 className="text-gray-900 font-bold text-xl sm:text-2xl">{`Recommended AI ${rec.category} of the Week: ${rec.title}`}</h2>
+                  <p className="mt-2 text-gray-600 text-sm sm:text-base">{rec.description}</p>
+                  <a href={rec.url} className="text-blue-500 hover:underline mt-2 block text-sm sm:text-base">{rec.url}</a>
                 </div>
               </div>
             </div>

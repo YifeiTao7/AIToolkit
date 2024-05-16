@@ -1,4 +1,3 @@
-// src/components/TabContent.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import UrlCard from './UrlCard';
@@ -22,7 +21,9 @@ function TabContent({ selectedCategory }) {
   }, []);
 
   useEffect(() => {
-    if (selectedCategory !== 'all') {
+    if (selectedCategory === 'all') {
+      setActiveTab('popular');
+    } else {
       setActiveTab('category');
     }
   }, [selectedCategory]);
