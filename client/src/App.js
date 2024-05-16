@@ -7,18 +7,23 @@ import Footer from './components/Footer';
 import './style.css';
 
 function App() {
-  // eslint-disable-next-line no-unused-vars
   const [selectedCategory, setSelectedCategory] = useState('all');
+
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+  };
+
+  
 
   return (
     <div className="home blog sidebar_no flex h-screen flex-col md:flex-row">
-      <Sidebar onSelectCategory={setSelectedCategory} />
+      <Sidebar onSelectCategory={handleCategorySelect} />
       <div className="main-content flex-1 flex flex-col">
         <Header />
         <div className="flex flex-1">
           <Showcase className="flex-1 h-full" />
         </div>
-        <TabContent selectedCategory={setSelectedCategory} />
+        <TabContent selectedCategory={selectedCategory} />
         <Footer />
       </div>
     </div>

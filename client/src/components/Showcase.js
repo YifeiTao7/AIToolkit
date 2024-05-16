@@ -82,10 +82,10 @@ function Showcase() {
                 {recommendations.map((rec, index) => (
                     <div key={index} className="p-2">
                         <div 
-                            className="bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer"
+                            className="bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer max-w-full mx-auto"
                             onClick={() => handleItemClick(rec)}
                         >
-                            <img className="w-full h-40 sm:h-64 object-cover object-center" src={rec.imageUrl} alt={rec.title} />
+                            <img className="w-full h-60 sm:h-80 lg:h-96 object-cover object-center" src={rec.imageUrl} alt={rec.title} />
                             <div className="p-4">
                                 <h2 className="text-gray-900 font-bold text-xl sm:text-2xl">{`Recommended AI ${rec.category} of the Week: ${rec.title}`}</h2>
                                 <p className="mt-2 text-gray-600 text-sm sm:text-base">{rec.description}</p>
