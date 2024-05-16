@@ -11,7 +11,7 @@ function Sidebar({ onSelectCategory }) {
     useEffect(() => {
         const fetchSidebarItems = async () => {
             try {
-                const response = await axios.get('/api/sidebarItems');
+                const response = await axios.get('/.netlify/functions/index/api/sidebarItems')
                 setSidebarItems(response.data);
             } catch (err) {
                 console.error('Error fetching sidebar items', err);

@@ -10,7 +10,7 @@ function TabContent({ selectedCategory }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/api/urlCards');
+        const response = await axios.get('/.netlify/functions/index/api/urlCards');
         setUrlCards(response.data);
         console.log('Fetched URL Cards:', response.data);
       } catch (err) {
