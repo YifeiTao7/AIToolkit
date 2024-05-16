@@ -42,9 +42,7 @@ function TabContent({ selectedCategory }) {
 
   console.log('Filtered URL Cards:', filteredUrlCards);
 
-  const displayedUrlCards = activeTab === 'all'
-    ? urlCards
-    : activeTab === 'popular'
+  const displayedUrlCards = activeTab === 'popular'
     ? urlCards.filter(card => card.popular)
     : filteredUrlCards;
 
