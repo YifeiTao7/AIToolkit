@@ -10,9 +10,9 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   return (
-    <div className="home blog sidebar_no flex h-screen">
+    <div className="home blog sidebar_no flex flex-col lg:flex-row h-screen">
       <Sidebar onSelectCategory={setSelectedCategory} />
-      <div className="main-content flex-1 flex flex-col ml-64">
+      <div className="main-content flex-1 flex flex-col lg:ml-64">
         <Header />
         <div className="flex flex-1">
           <Showcase className="flex-1 h-full" />
