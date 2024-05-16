@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import './style.css';
 
 function App() {
+  // eslint-disable-next-line no-unused-vars
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   return (
