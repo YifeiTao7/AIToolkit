@@ -1,15 +1,17 @@
 {
-    "name": "react-express-app",
+    "name": "ai-toolkit",
     "version": "1.0.0",
+    "private": true,
     "scripts": {
-        "start": "concurrently \"npm run server\" \"npm run client\"",
-        "server": "cd server && node index.js",
-        "client": "cd client && npm start"
-    },
-    "devDependencies": {
-        "concurrently": "^7.0.0"
+      "build": "cd client && npm install && npm run build && cd ../server && npm install"
     },
     "dependencies": {
-        "nodemailer": "^6.9.13"
+      "express": "^4.19.2",
+      "mongoose": "^8.3.4",
+      "cors": "^2.8.5",
+      "dotenv": "^16.4.5",
+      "body-parser": "^1.20.2",
+      "serverless-http": "^2.7.0"
     }
-}
+  }
+  
