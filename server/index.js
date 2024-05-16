@@ -21,7 +21,6 @@ mongoose.connect(process.env.MONGODB_URI, {
 const urlCardsRouter = require('./routes/urlCards');
 const sidebarItemsRouter = require('./routes/sidebarItems');
 
-
 app.use('/api/urlCards', urlCardsRouter);
 app.use('/api/sidebarItems', sidebarItemsRouter);
 
