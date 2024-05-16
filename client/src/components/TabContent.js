@@ -1,3 +1,4 @@
+// src/components/TabContent.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import UrlCard from './UrlCard';
@@ -51,7 +52,7 @@ function TabContent({ selectedCategory }) {
   return (
     <div id="content" className="container mx-auto px-4">
       <div className="flex mb-4">
-        <div className="slider-menu mini_tab w-full">
+        <div className="slider-menu mini_tab into w-full">
           <ul className="flex space-x-2 overflow-x-auto border-b">
             {tabs.map((tab) => (
               <li
@@ -67,7 +68,7 @@ function TabContent({ selectedCategory }) {
       </div>
       <div className="tab-content">
         <div className="tab-pane active">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-24">
             {displayedUrlCards.map((card, index) => (
               <UrlCard key={index} {...card} />
             ))}
