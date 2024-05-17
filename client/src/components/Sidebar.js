@@ -39,7 +39,7 @@ function Sidebar({ onSelectCategory }) {
       <div
         className={`fixed top-0 left-0 h-full w-64 bg-gray-100 border-r border-gray-300 overflow-y-auto transform ${
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        } transition-transform md:translate-x-0 md:static z-50`}
+        } transition-transform z-50 md:translate-x-0 md:static md:block`} // 确保中等屏幕上显示
       >
         <div className="sidebar-logo p-4">
           <div className="logo overflow-hidden flex items-center space-x-4">
@@ -55,7 +55,7 @@ function Sidebar({ onSelectCategory }) {
                 icon={item.icon}
                 text={item.text}
                 subItems={item.subItems}
-                onClick={(category) => handleItemClick(category)}
+                onClick={handleItemClick}
                 isActive={activeCategory === item.category}
                 category={item.category}
               />

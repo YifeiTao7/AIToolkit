@@ -1,3 +1,4 @@
+// App.js
 import React, { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
@@ -12,8 +13,6 @@ function App() {
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
   };
-
-  
 
   return (
     <div className="home blog sidebar_no flex h-screen flex-col md:flex-row">
