@@ -27,7 +27,7 @@ function Sidebar({ onSelectCategory }) {
   const handleItemClick = (category) => {
     setActiveCategory(category);
     onSelectCategory(category);
-    setIsSidebarOpen(false); // Close the sidebar on mobile after selecting a category
+    setIsSidebarOpen(false);
   };
 
   const handleClickOutside = (event) => {

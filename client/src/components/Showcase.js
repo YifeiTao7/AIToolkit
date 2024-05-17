@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import Modal from './Modal'; // 引入 Modal 组件
+import Modal from './Modal';
 import { Helmet } from 'react-helmet';
 
 const recommendations = [

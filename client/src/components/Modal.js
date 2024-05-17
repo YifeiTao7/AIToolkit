@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
 function Modal({ show, onClose, content }) {
-    // 使用 useEffect 监听 ESC 键以关闭模态窗口
     useEffect(() => {
         const handleEsc = (event) => {
             if (event.keyCode === 27) {
