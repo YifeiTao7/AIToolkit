@@ -14,7 +14,7 @@ function App() {
   };
 
   return (
-    <div className="home blog sidebar_no flex h-screen flex-col md:flex-row">
+    <div className="home blog sidebar_no flex h-screen flex-col lg:flex-row">
       <Sidebar onSelectCategory={handleCategorySelect} />
       <div className="main-content flex-1 flex flex-col">
         <Header />

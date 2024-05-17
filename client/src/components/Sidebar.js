@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FaBars } from 'react-icons/fa';
 import SidebarItem from './SidebarItem';
 import axios from 'axios';
@@ -9,6 +9,7 @@ function Sidebar({ onSelectCategory }) {
   const [sidebarItems, setSidebarItems] = useState([]);
   const [activeCategory, setActiveCategory] = useState('all');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const sidebarRef = useRef(null);
 
   useEffect(() => {
     const fetchSidebarItems = async () => {
@@ -29,18 +30,40 @@ function Sidebar({ onSelectCategory }) {
     setIsSidebarOpen(false); // Close the sidebar on mobile after selecting a category
   };
 
+  const handleClickOutside = (event) => {
+    if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+      setIsSidebarOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isSidebarOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isSidebarOpen]);
+
   return (
     <>
       <button
-        className="p-4 bg-gray-800 text-white md:hidden"
+        className="p-4 bg-gray-800 text-white lg:hidden"
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
       >
         <FaBars />
       </button>
       <div
+        ref={sidebarRef}
         className={`fixed top-0 left-0 h-full w-64 bg-gray-100 border-r border-gray-300 overflow-y-auto transform ${
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        } transition-transform z-50 md:translate-x-0 md:static`}
+        } transition-transform z-50 lg:translate-x-0 lg:static`}
       >
         <div className="sidebar-logo p-4">
           <div className="logo overflow-hidden flex items-center space-x-4">
