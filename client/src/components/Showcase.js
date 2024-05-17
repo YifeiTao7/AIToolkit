@@ -77,7 +77,7 @@ function Showcase() {
     };
 
     return (
-        <div className="showcase-container w-full max-w-screen-xl mx-auto my-8 px-4 pt-20">
+        <div className="showcase-container w-full max-w-screen-xl mx-auto my-8 px-8">
             <Slider {...settings}>
                 {recommendations.map((rec, index) => (
                     <div key={index} className="p-2">

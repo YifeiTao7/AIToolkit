@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FaBars } from 'react-icons/fa';
 import SidebarItem from './SidebarItem';
 import axios from 'axios';
 import logo from '../logo.png';
@@ -31,15 +32,15 @@ function Sidebar({ onSelectCategory }) {
   return (
     <>
       <button
-        className="md:hidden p-4 bg-gray-800 text-white"
+        className="p-4 bg-gray-800 text-white md:hidden"
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
       >
-        Toggle Sidebar
+        <FaBars />
       </button>
       <div
         className={`fixed top-0 left-0 h-full w-64 bg-gray-100 border-r border-gray-300 overflow-y-auto transform ${
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        } transition-transform z-50 md:translate-x-0 md:static md:block`} // 确保中等屏幕上显示
+        } transition-transform z-50 md:translate-x-0 md:static`}
       >
         <div className="sidebar-logo p-4">
           <div className="logo overflow-hidden flex items-center space-x-4">
