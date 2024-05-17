@@ -4,6 +4,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'lg': '1366px',
+      },
         animation: {
             marquee: 'marquee 15s linear infinite',
         },
