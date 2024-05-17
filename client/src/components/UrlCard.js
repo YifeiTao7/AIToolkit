@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function UrlCard({ href, src, alt, title, description, category, popular }) {
     return (
-        <div className="url-card h-24 sm:h-32 md:h-40 lg:h-40 xl:h-40">
+        <div className="url-card h-12 sm:h-16 md:h-20 lg:h-20 xl:h-20">
             <div className="url-body bg-white shadow-md rounded-lg p-4 h-full flex flex-col justify-between">
                 <a
                     href={href}
