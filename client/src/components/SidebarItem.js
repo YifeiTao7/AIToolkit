@@ -19,13 +19,13 @@ function SidebarItem({ icon, text, subItems, onClick, isActive, category }) {
 
   return (
     <li className={`py-2 px-4 cursor-pointer ${isActive ? 'bg-blue-500 text-white' : 'text-gray-700'} mb-2`} onClick={handleItemClick}>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between" aria-expanded={isExpanded} role="button" tabIndex="0">
         <div className="flex items-center text-base font-medium">
-          <i className={`bi bi-${icon} mr-2`}></i>
+          <i className={`bi bi-${icon} mr-2`} aria-hidden="true"></i>
           <span>{text}</span>
         </div>
         {subItems && subItems.length > 0 && (
-          <FaChevronRight className={`transform transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
+          <FaChevronRight className={`transform transition-transform ${isExpanded ? 'rotate-90' : ''}`} aria-hidden="true" />
         )}
       </div>
       {isExpanded && subItems && subItems.length > 0 && (

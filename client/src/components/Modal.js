@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function Modal({ show, onClose, content }) {
+    // 使用 useEffect 监听 ESC 键以关闭模态窗口
+    useEffect(() => {
+        const handleEsc = (event) => {
+            if (event.keyCode === 27) {
+                onClose();
+            }
+        };
+        window.addEventListener('keydown', handleEsc);
+        return () => {
+            window.removeEventListener('keydown', handleEsc);
+        };
+    }, [onClose]);
+
     if (!show) {
         return null;
     }
 
     return (
-        <div className="fixed z-10 inset-0 overflow-y-auto">
+        <div className="fixed z-10 inset-0 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-description">
             <div className="flex items-center justify-center min-h-screen p-4 text-center sm:block sm:p-0">
                 <div className="fixed inset-0 transition-opacity" aria-hidden="true">
                     <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
@@ -19,9 +32,9 @@ function Modal({ show, onClose, content }) {
                                 <img src={content.imageUrl} alt={content.title} className="h-10 w-10 rounded-full" />
                             </div>
                             <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                                <h3 className="text-lg leading-6 font-medium text-gray-900">{content.title}</h3>
+                                <h3 className="text-lg leading-6 font-medium text-gray-900" id="modal-title">{content.title}</h3>
                                 <div className="mt-2">
-                                    <p className="text-sm text-gray-500">{content.details}</p>
+                                    <p className="text-sm text-gray-500" id="modal-description">{content.details}</p>
                                 </div>
                             </div>
                         </div>
@@ -31,6 +44,7 @@ function Modal({ show, onClose, content }) {
                             type="button"
                             className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
                             onClick={onClose}
+                            aria-label="Close"
                         >
                             Close
                         </button>

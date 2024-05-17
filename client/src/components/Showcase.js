@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Modal from './Modal'; // 引入 Modal 组件
+import { Helmet } from 'react-helmet';
 
 const recommendations = [
     {
@@ -78,6 +79,10 @@ function Showcase() {
 
     return (
         <div className="showcase-container w-full max-w-screen-xl mx-auto my-8 px-8">
+            <Helmet>
+                <title>AI Tool Recommendations</title>
+                <meta name="description" content="Discover the top AI tools for various applications, including writing, image generation, video editing, and more." />
+            </Helmet>
             <Slider {...settings}>
                 {recommendations.map((rec, index) => (
                     <div key={index} className="p-2">

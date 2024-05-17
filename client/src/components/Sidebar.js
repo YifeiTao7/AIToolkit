@@ -54,7 +54,7 @@ function Sidebar({ onSelectCategory }) {
   return (
     <>
       <button
-        className="p-4 bg-gray-800 text-white md:block lg:hidden" // 确保在 md 和 lg 屏幕上显示
+        className="p-4 bg-gray-800 text-white lg:hidden"
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
       >
         <FaBars />

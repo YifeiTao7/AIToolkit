@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import UrlCard from './UrlCard';
 
@@ -50,6 +51,10 @@ function TabContent({ selectedCategory }) {
 
   return (
     <div id="content" className="container mx-auto px-4">
+      <Helmet>
+        <title>{selectedCategory === 'all' ? 'All AI Tools' : `${selectedCategory} AI Tools`} - AI Toolkit</title>
+        <meta name="description" content="Browse and discover the most popular and category-specific AI tools available." />
+      </Helmet>
       <div className="flex mb-4">
         <div className="slider-menu mini_tab into w-full">
           <ul className="flex space-x-2 overflow-x-auto border-b">
