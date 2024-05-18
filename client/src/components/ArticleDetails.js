@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-import LazyLoad from 'react-lazyload';
 
 function ArticleDetails() {
   const { id } = useParams();
@@ -50,13 +49,11 @@ function ArticleDetails() {
       </div>
       <div className="prose prose-lg max-w-none text-gray-800 h-96 overflow-y-auto scrollbar-hide">
         <div className="relative overflow-hidden rounded-lg mb-8">
-          <LazyLoad height={256} offset={100}>
-            <img 
-              src={mainImage} 
-              alt={article.title} 
-              className="w-full h-64 object-cover"
-            />
-          </LazyLoad>
+          <img 
+            src={mainImage} 
+            alt={article.title} 
+            className="w-full h-64 object-cover"
+          />
         </div>
         {paragraphs.map((paragraph, index) => (
           <div key={index} className="mb-1">
@@ -65,13 +62,11 @@ function ArticleDetails() {
             </p>
             {index === Math.floor(paragraphs.length / 2) && (
               <div className="my-8">
-                <LazyLoad height={256} offset={100}>
-                  <img
-                    src={midArticleImage}
-                    alt="Mid-article"
-                    className="w-full h-64 object-cover rounded-lg"
-                  />
-                </LazyLoad>
+                <img
+                  src={midArticleImage}
+                  alt="Mid-article"
+                  className="w-full h-64 object-cover rounded-lg"
+                />
               </div>
             )}
           </div>

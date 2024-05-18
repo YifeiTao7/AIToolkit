@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import LazyLoad from 'react-lazyload';
 
 function ArticleList() {
   const [articles, setArticles] = useState([]);
@@ -67,7 +66,7 @@ function ArticleList() {
             onClick={handleLinkClick}
             className="article-summary mb-4 bg-white bg-opacity-75 shadow-lg rounded-lg transform transition-transform hover:scale-105 overflow-hidden"
           >
-            <LazyLoad height={150} offset={100}>
+            <img  height={150} offset={100}>
               <div className="relative h-48 overflow-hidden">
                 <img 
                   src={randomImages[index]} 
@@ -79,7 +78,7 @@ function ArticleList() {
                 <h2 className="text-xl font-bold mb-2 text-gray-900">{article.title}</h2>
                 <p className="mb-2 text-gray-800 text-sm">{article.description}</p>
               </div>
-            </LazyLoad>
+            </img>
           </Link>
         ))}
       </div>
