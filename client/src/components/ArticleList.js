@@ -66,19 +66,17 @@ function ArticleList() {
             onClick={handleLinkClick}
             className="article-summary mb-4 bg-white bg-opacity-75 shadow-lg rounded-lg transform transition-transform hover:scale-105 overflow-hidden"
           >
-            <img  height={150} offset={100}>
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={randomImages[index]} 
-                  alt={article.title} 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-4">
-                <h2 className="text-xl font-bold mb-2 text-gray-900">{article.title}</h2>
-                <p className="mb-2 text-gray-800 text-sm">{article.description}</p>
-              </div>
-            </img>
+            <div className="relative h-48 overflow-hidden">
+              <img 
+                src={randomImages[index]} 
+                alt={article.title} 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="p-4">
+              <h2 className="text-xl font-bold mb-2 text-gray-900">{article.title}</h2>
+              <p className="mb-2 text-gray-800 text-sm">{article.description}</p>
+            </div>
           </Link>
         ))}
       </div>
