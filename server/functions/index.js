@@ -31,6 +31,6 @@ const articlesRouter = require('../routes/articles');
 
 router.use('/api/urlCards', urlCardsRouter);
 router.use('/api/sidebarItems', sidebarItemsRouter);
-app.use('/api/articles', articlesRouter);
+router.use('/api/articles', articlesRouter);
 
 module.exports.handler = serverless(app);
