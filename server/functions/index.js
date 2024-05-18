@@ -27,8 +27,10 @@ router.get('/test', (req, res) => {
 // 引入并使用路由
 const urlCardsRouter = require('../routes/urlCards');
 const sidebarItemsRouter = require('../routes/sidebarItems');
+const articlesRouter = require('./routes/articles');
 
 router.use('/api/urlCards', urlCardsRouter);
 router.use('/api/sidebarItems', sidebarItemsRouter);
+app.use('/api/articles', articlesRouter);
 
 module.exports.handler = serverless(app);

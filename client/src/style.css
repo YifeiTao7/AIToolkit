@@ -9,4 +9,31 @@
       margin-left: 0;
     }
   }
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-200;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-500;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-700;
+  }
+  
+  /* Hide scrollbar by default */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Show scrollbar on hover */
+  .scrollbar-hide:hover::-webkit-scrollbar {
+    display: block;
+  }
   

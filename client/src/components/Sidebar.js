@@ -63,7 +63,7 @@ function Sidebar({ onSelectCategory }) {
         ref={sidebarRef}
         className={`fixed top-0 left-0 h-full w-64 bg-gray-100 border-r border-gray-300 overflow-y-auto transform ${
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        } transition-transform z-50 lg:translate-x-0 lg:static`}
+        } transition-transform z-50 lg:translate-x-0`}
       >
         <div className="sidebar-logo p-4">
           <div className="logo overflow-hidden flex items-center space-x-4">

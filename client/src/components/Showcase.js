@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import Modal from './Modal';
 import { Helmet } from 'react-helmet';
 
 const recommendations = [
@@ -57,8 +56,6 @@ const recommendations = [
 ];
 
 function Showcase() {
-    const [selectedRec, setSelectedRec] = useState(null);
-
     const settings = {
         dots: true,
         infinite: true,
@@ -67,14 +64,6 @@ function Showcase() {
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
-    };
-
-    const handleItemClick = (rec) => {
-        setSelectedRec(rec);
-    };
-
-    const closeModal = () => {
-        setSelectedRec(null);
     };
 
     return (
@@ -86,10 +75,7 @@ function Showcase() {
             <Slider {...settings}>
                 {recommendations.map((rec, index) => (
                     <div key={index} className="p-2">
-                        <div 
-                            className="bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer max-w-full mx-auto"
-                            onClick={() => handleItemClick(rec)}
-                        >
+                        <div className="bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer max-w-full mx-auto">
                             <img className="w-full h-60 sm:h-80 lg:h-96 object-cover object-center" src={rec.imageUrl} alt={rec.title} />
                             <div className="p-4">
                                 <h2 className="text-gray-900 font-bold text-xl sm:text-2xl">{`Recommended AI ${rec.category} of the Week: ${rec.title}`}</h2>
@@ -100,7 +86,6 @@ function Showcase() {
                     </div>
                 ))}
             </Slider>
-            <Modal show={!!selectedRec} onClose={closeModal} content={selectedRec || {}} />
         </div>
     );
 }

@@ -3,9 +3,12 @@ import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import UrlCard from './UrlCard';
 
-function TabContent({ selectedCategory }) {
+const PAGE_SIZE = 8;
+
+function TabContent({ selectedCategory, onSelectCategory }) {
   const [urlCards, setUrlCards] = useState([]);
   const [activeTab, setActiveTab] = useState('popular');
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,6 +29,7 @@ function TabContent({ selectedCategory }) {
     } else {
       setActiveTab('category');
     }
+    setCurrentPage(1); // Reset to first page when category changes
   }, [selectedCategory]);
 
   const tabs = [
@@ -34,19 +38,38 @@ function TabContent({ selectedCategory }) {
     { id: 'category', label: 'Category' }
   ];
 
-  console.log('Selected Category:', selectedCategory);
-  
   const filteredUrlCards = selectedCategory === 'all'
     ? urlCards
     : urlCards.filter(card => card.category === selectedCategory);
-
-  console.log('Filtered URL Cards:', filteredUrlCards);
 
   const displayedUrlCards = activeTab === 'popular'
     ? urlCards.filter(card => card.popular)
     : filteredUrlCards;
 
-  console.log('Displayed URL Cards:', displayedUrlCards);
+  // Pagination logic
+  const totalPages = Math.ceil(displayedUrlCards.length / PAGE_SIZE);
+  const startIdx = (currentPage - 1) * PAGE_SIZE;
+  const paginatedUrlCards = displayedUrlCards.slice(startIdx, startIdx + PAGE_SIZE);
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handleTabClick = (tabId) => {
+    setActiveTab(tabId);
+    setCurrentPage(1); // Reset to first page when tab changes
+    if (tabId === 'all') {
+      onSelectCategory('all');
+    }
+  };
 
   return (
     <div id="content" className="container mx-auto px-4">
@@ -61,7 +84,7 @@ function TabContent({ selectedCategory }) {
               <li
                 key={tab.id}
                 className={`cursor-pointer text-lg font-bold py-2 px-4 rounded-t-md ${activeTab === tab.id ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'}`}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => handleTabClick(tab.id)}
               >
                 {tab.label}
               </li>
@@ -71,10 +94,27 @@ function TabContent({ selectedCategory }) {
       </div>
       <div className="tab-content">
         <div className="tab-pane active">
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-24">
-            {displayedUrlCards.map((card, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
+            {paginatedUrlCards.map((card, index) => (
               <UrlCard key={index} {...card} />
             ))}
+          </div>
+          <div className="flex justify-between mt-4">
+            <button
+              onClick={handlePrevPage}
+              className={`py-2 px-4 rounded ${currentPage === 1 ? 'text-gray-400' : 'text-blue-500 hover:bg-blue-100'}`}
+              disabled={currentPage === 1}
+            >
+              Previous
+            </button>
+            <span className="text-gray-600">Page {currentPage} of {totalPages}</span>
+            <button
+              onClick={handleNextPage}
+              className={`py-2 px-4 rounded ${currentPage === totalPages ? 'text-gray-400' : 'text-blue-500 hover:bg-blue-100'}`}
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
           </div>
         </div>
       </div>
