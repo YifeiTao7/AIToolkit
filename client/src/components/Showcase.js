@@ -8,7 +8,7 @@ const recommendations = [
     {
         title: 'Jasper AI',
         description: 'Enhance your writing efficiency with the latest AI-powered tools from Jasper. Using state-of-the-art NLP techniques, it provides real-time feedback.',
-        imageUrl: 'https://storage.googleapis.com/yifeitaoblogs/AI/jasper.png',
+        imageUrl: 'https://storage.googleapis.com/yifeitaoblogs/AI/jasper.webp',
         details: 'Jasper AI is an advanced AI writing assistant that helps users quickly generate high-quality content, including blog posts, social media posts, ad copy, and more. It offers advanced grammar and style suggestions, auto-completion, and context-aware writing assistance. Using state-of-the-art NLP techniques, it provides real-time feedback, making it ideal for both professional and casual writing tasks. Compared to other tools, it offers a more intuitive interface and better integration with popular text editors.',
         url: 'https://www.jasper.ai/',
         category: 'Writing Tool'
@@ -16,7 +16,7 @@ const recommendations = [
     {
         title: 'DALL-E 2',
         description: 'Generate and optimize images with cutting-edge AI from OpenAI. Utilizing GANs and other deep learning techniques.',
-        imageUrl: 'https://storage.googleapis.com/yifeitaoblogs/AI/Dall-e.png',
+        imageUrl: 'https://storage.googleapis.com/yifeitaoblogs/AI/Dall-e.webp',
         details: 'DALL-E 2 is a powerful image generation tool developed by OpenAI that can create high-quality images from textual descriptions. It supports text-to-image generation, image enhancement, and background removal. Utilizing GANs and other deep learning techniques, it produces high-quality results quickly. Its user-friendly interface and high processing speed outperform many traditional image editing software.',
         url: 'https://www.openai.com/dall-e-2',
         category: 'Image Tool'
@@ -24,7 +24,7 @@ const recommendations = [
     {
         title: 'Synthesia',
         description: 'Smart video editing with the newest AI technologies from Synthesia. Leveraging deep learning for automated video editing.',
-        imageUrl: 'https://storage.googleapis.com/yifeitaoblogs/AI/synthesia.png',
+        imageUrl: 'https://storage.googleapis.com/yifeitaoblogs/AI/synthesia.webp',
         details: 'Synthesia is an AI video generation platform that creates high-quality videos from text. It offers automated video editing, including scene detection, auto-cropping, and smart transitions. It leverages deep learning to understand the content of your videos and suggest edits that enhance the overall quality. This tool is particularly useful for creating professional-looking videos with minimal effort, offering features not found in standard video editing software.',
         url: 'https://www.synthesia.io/',
         category: 'Video Tool'
@@ -32,7 +32,7 @@ const recommendations = [
     {
         title: 'Notion AI',
         description: 'Increase work productivity with innovative AI office tools from Notion. Using machine learning for task optimization.',
-        imageUrl: 'https://storage.googleapis.com/yifeitaoblogs/AI/Notion.png',
+        imageUrl: 'https://storage.googleapis.com/yifeitaoblogs/AI/Notion.webp',
         details: 'Notion AI is an intelligent assistant integrated into the Notion platform, providing AI support for task management, document editing, and note-taking. It includes smart scheduling, document automation, and real-time collaboration features. It uses machine learning to optimize your tasks and improve efficiency, providing a seamless integration with other office software. Its advantage lies in its ability to learn from your usage patterns and offer personalized recommendations.',
         url: 'https://www.notion.so/product/ai',
         category: 'Office Tool'
@@ -40,7 +40,7 @@ const recommendations = [
     {
         title: 'Replika',
         description: 'Intelligent conversation assistant for seamless interactions by Replika. Advanced NLP and machine learning algorithms for natural conversations.',
-        imageUrl: 'https://storage.googleapis.com/yifeitaoblogs/AI/Replika.png',
+        imageUrl: 'https://storage.googleapis.com/yifeitaoblogs/AI/Replika.webp',
         details: 'Replika is an AI-powered chatbot designed to provide emotional support and friendly conversations. It can act as a virtual friend to help users alleviate stress and loneliness. This tool uses advanced NLP and machine learning algorithms to provide natural and human-like interactions. It supports multiple languages and can be integrated into various customer service platforms, making it a versatile choice for businesses. Its main advantage is its ability to understand and respond to complex queries accurately.',
         url: 'https://replika.com/',
         category: 'Chat Assistant'
@@ -48,7 +48,7 @@ const recommendations = [
     {
         title: 'GitHub Copilot',
         description: 'Assist with coding using the latest AI programming tools from GitHub. Machine learning models trained on vast amounts of code.',
-        imageUrl: 'https://storage.googleapis.com/yifeitaoblogs/AI/Copilot.png',
+        imageUrl: 'https://storage.googleapis.com/yifeitaoblogs/AI/Copilot.webp',
         details: 'GitHub Copilot is an AI coding assistant developed by GitHub and OpenAI that provides real-time code suggestions and autocompletion, significantly improving programming efficiency. It offers real-time code suggestions, detects bugs, and provides fixes, making coding faster and more reliable. It uses machine learning models trained on vast amounts of code to offer accurate and context-aware assistance. Compared to traditional coding assistants, it offers better accuracy and more advanced features.',
         url: 'https://github.com/features/copilot',
         category: 'Programming Tool'
