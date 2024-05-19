@@ -32,7 +32,7 @@ function ArticleDetails() {
       randomIndex = Math.floor(Math.random() * 22) + 1;
     } while (usedIndices.has(randomIndex));
     usedIndices.add(randomIndex);
-    return `https://storage.googleapis.com/yifeitaoblogs/AI/backgroung-ai/${randomIndex}.jpg`;
+    return `https://storage.googleapis.com/yifeitaoblogs/AI/backgroung-ai/${randomIndex}.webp`;
   };
 
   const usedIndices = new Set();

@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function ArticleList() {
   const [articles, setArticles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const randomImagesRef = useRef([]);
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -41,16 +42,19 @@ function ArticleList() {
   };
 
   const getRandomImages = () => {
-    const usedIndices = new Set();
-    const images = [];
-    while (images.length < PAGE_SIZE) {
-      const randomIndex = Math.floor(Math.random() * 22) + 1;
-      if (!usedIndices.has(randomIndex)) {
-        usedIndices.add(randomIndex);
-        images.push(`https://storage.googleapis.com/yifeitaoblogs/AI/backgroung-ai/${randomIndex}.jpg`);
+    if (randomImagesRef.current.length === 0) {
+      const usedIndices = new Set();
+      const images = [];
+      while (images.length < PAGE_SIZE) {
+        const randomIndex = Math.floor(Math.random() * 22) + 1;
+        if (!usedIndices.has(randomIndex)) {
+          usedIndices.add(randomIndex);
+          images.push(`https://storage.googleapis.com/yifeitaoblogs/AI/backgroung-ai/${randomIndex}.webp`);
+        }
       }
+      randomImagesRef.current = images;
     }
-    return images;
+    return randomImagesRef.current;
   };
 
   const randomImages = getRandomImages();
