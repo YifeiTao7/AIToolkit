@@ -49,7 +49,7 @@ function ArticleList() {
         const randomIndex = Math.floor(Math.random() * 22) + 1;
         if (!usedIndices.has(randomIndex)) {
           usedIndices.add(randomIndex);
-          images.push(`https://storage.googleapis.com/yifeitaoblogs/AI/backgroung-ai/${randomIndex}.webp`);
+          images.push(`https://storage.googleapis.com/yifeitaoblogs/AI/background-ai/${randomIndex}.webp`);
         }
       }
       randomImagesRef.current = images;
